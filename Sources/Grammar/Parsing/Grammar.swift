@@ -8,7 +8,7 @@ typealias _DefaultDiagnostics = DefaultDiagnostics
 /// A namespace for structured parsing utilities.
 @available(*, deprecated)
 public
-enum Grammar
+enum Grammar2
 {
     // note: this only works on swift >= 5.7
     /// A shortcut for expressing the type constraints on ``ParsingRule.parse(_:)``.
