@@ -55,7 +55,8 @@ extension ParsingRule
     /// >   Throws:
     ///     A ``Pattern.UnexpectedValueError`` if there remained any
     ///     unparsed input after applying this rule to its furthest extent.
-    @inlinable public static
+    //@inlinable
+    public static
     func parse<Source>(diagnosing source:Source) throws -> Construction
         where Source:Collection<Terminal>, Source.Index == Location
     {
@@ -70,7 +71,8 @@ extension ParsingRule
     /// >   Throws:
     ///     A ``Pattern.UnexpectedValueError`` if there remained any
     ///     unparsed input after applying this rule to its furthest extent.
-    @inlinable public static
+    //@inlinable
+    public static
     func parse<Source>(_ source:Source) throws -> Construction
         where Source:Collection<Terminal>, Source.Index == Location
     {
@@ -85,7 +87,8 @@ extension ParsingRule
     /// >   Throws:
     ///     A ``Pattern.UnexpectedValueError`` if there remained any
     ///     unparsed input after applying this rule to its furthest extent.
-    @inlinable public static
+    //@inlinable
+    public static
     func parse<Source, Vector>(_ source:Source, into _:Vector.Type = Vector.self)
         throws -> Vector
         where   Source:Collection<Terminal>, Source.Index == Location,
@@ -107,7 +110,8 @@ extension Optional:ParsingRule where Wrapped:ParsingRule
     public
     typealias Terminal  = Wrapped.Terminal
 
-    @inlinable public static
+    //@inlinable
+    public static
     func parse<Source>(
         _ input:inout ParsingInput<some ParsingDiagnostics<Source>>) -> Wrapped.Construction?
         where Source:Collection<Terminal>, Source.Index == Location
@@ -123,7 +127,8 @@ extension Array:ParsingRule where Element:ParsingRule
     public
     typealias Terminal = Element.Terminal
 
-    @inlinable public static
+    //@inlinable
+    public static
     func parse<Source>(
         _ input:inout ParsingInput<some ParsingDiagnostics<Source>>) -> [Element.Construction]
         where Source:Collection<Terminal>, Source.Index == Location
