@@ -1,9 +1,9 @@
-// swift-tools-version:5.8
+// swift-tools-version:5.9
 import PackageDescription
 
 let package:Package = .init(
     name: "Swift Grammar",
-    platforms: [.macOS(.v10_15), .iOS(.v13), .tvOS(.v13), .watchOS(.v6)],
+    platforms: [.macOS(.v10_14), .iOS(.v13), .tvOS(.v13), .watchOS(.v6)],
     products: [
         .library(name: "Grammar", targets: ["Grammar"]),
         .library(name: "Testing_", targets: ["Testing_"]),
