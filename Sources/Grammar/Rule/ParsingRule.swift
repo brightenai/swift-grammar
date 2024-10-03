@@ -46,7 +46,7 @@ protocol ParsingRule<Terminal>
         where Source:Collection<Terminal>, Source.Index == Location
 }
 
-extension ParsingRule
+public extension ParsingRule
 {
     /// Attempts to parse the given input completely, emitting diagnostics
     /// if parsing failed.
@@ -56,7 +56,7 @@ extension ParsingRule
     ///     A ``Pattern.UnexpectedValueError`` if there remained any
     ///     unparsed input after applying this rule to its furthest extent.
     //@inlinable
-    public static
+     static
     func parse<Source>(diagnosing source:Source) throws -> Construction
         where Source:Collection<Terminal>, Source.Index == Location
     {
@@ -72,7 +72,7 @@ extension ParsingRule
     ///     A ``Pattern.UnexpectedValueError`` if there remained any
     ///     unparsed input after applying this rule to its furthest extent.
     //@inlinable
-    public static
+     static
     func parse<Source>(_ source:Source) throws -> Construction
         where Source:Collection<Terminal>, Source.Index == Location
     {
@@ -88,7 +88,7 @@ extension ParsingRule
     ///     A ``Pattern.UnexpectedValueError`` if there remained any
     ///     unparsed input after applying this rule to its furthest extent.
     //@inlinable
-    public static
+     static
     func parse<Source, Vector>(_ source:Source, into _:Vector.Type = Vector.self)
         throws -> Vector
         where   Source:Collection<Terminal>, Source.Index == Location,
@@ -103,7 +103,7 @@ extension ParsingRule
 
 // these extensions are mainly useful when defined as part of a tuple rule.
 // otherwise, the overloads in the previous section of code should be preferred
-extension Optional:ParsingRule where Wrapped:ParsingRule
+ extension Optional:ParsingRule where Wrapped:ParsingRule
 {
     public
     typealias Location  = Wrapped.Location
@@ -120,7 +120,7 @@ extension Optional:ParsingRule where Wrapped:ParsingRule
         input.parse(as: Wrapped?.self)
     }
 }
-extension Array:ParsingRule where Element:ParsingRule
+ extension Array:ParsingRule where Element:ParsingRule
 {
     public
     typealias Location = Element.Location
